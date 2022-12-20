@@ -6,8 +6,5 @@ logging:
                 web:
                     filter:
                         CommonsRequestLoggingFilter: debug
-            hibernate:
-                SQL: debug
-                type: trace
 
                         
