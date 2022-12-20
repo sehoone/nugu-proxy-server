@@ -1,0 +1,13 @@
+logging:
+    level:
+        root: info
+        org:
+            springframework:
+                web:
+                    filter:
+                        CommonsRequestLoggingFilter: debug
+            hibernate:
+                SQL: debug
+                type: trace
+
+                        
