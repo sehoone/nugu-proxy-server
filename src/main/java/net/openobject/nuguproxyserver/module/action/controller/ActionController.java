@@ -11,25 +11,41 @@ import org.springframework.web.bind.annotation.RestController;
 import lombok.extern.slf4j.Slf4j;
 
 /**
- * sample 컨트롤러
+ * action_name 컨트롤러
  */
 @Slf4j
 @RestController
+@RequestMapping("/action_name")
 public class ActionController {
 
     /**
-     * {@code GET /api/sample/hello-world} : get hello-world text
+     * {@code GET /action_name} : echo
      *
-     * @param 
-     * @return 
+     * @param
+     * @return
      */
-	@RequestMapping(value = "/action_name", consumes = MediaType.ALL_VALUE, produces = 
-		MediaType.APPLICATION_JSON_VALUE, method = {RequestMethod.GET, RequestMethod.POST,
-		RequestMethod.PUT, RequestMethod.DELETE, RequestMethod.OPTIONS})
-	public ResponseEntity<?> echoBack(@RequestBody(required = false) byte[] rawBody) {
-        log.debug("echoBack start "+new String(rawBody));
+    @RequestMapping(value = "", consumes = MediaType.ALL_VALUE, produces = MediaType.APPLICATION_JSON_VALUE, method = {
+            RequestMethod.GET, RequestMethod.POST,
+            RequestMethod.PUT, RequestMethod.DELETE, RequestMethod.OPTIONS })
+    public ResponseEntity<?> echoBack1(@RequestBody(required = false) byte[] rawBody) {
+        log.debug("echoBack start " + new String(rawBody));
 
-		return ResponseEntity.status(HttpStatus.OK).body(new String(rawBody));
-	}
+        return ResponseEntity.status(HttpStatus.OK).body(new String(rawBody));
+    }
+
+    /**
+     * {@code GET /action_name/answer.department.member-name} : NUGU BODY 확인용 API
+     *
+     * @param
+     * @return
+     */
+    @RequestMapping(value = "/answer.department.member-name", consumes = MediaType.ALL_VALUE, produces = MediaType.APPLICATION_JSON_VALUE, method = {
+            RequestMethod.GET, RequestMethod.POST,
+            RequestMethod.PUT, RequestMethod.DELETE, RequestMethod.OPTIONS })
+    public ResponseEntity<?> echoBack2(@RequestBody(required = false) byte[] rawBody) {
+        log.debug("echoBack start " + new String(rawBody));
+
+        return ResponseEntity.status(HttpStatus.OK).body(new String(rawBody));
+    }
 
 }
