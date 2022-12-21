@@ -1,11 +1,11 @@
 logging:
     level:
         root: info
-        org:
-            springframework:
-                web:
-                    filter:
-                        CommonsRequestLoggingFilter: debug
+        # org:
+        #     springframework:
+        #         web:
+        #             filter:
+        #                 CommonsRequestLoggingFilter: debug
 management:
   endpoints:
     web:
