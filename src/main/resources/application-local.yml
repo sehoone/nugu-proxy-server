@@ -1,6 +1,10 @@
 logging:
     level:
         root: debug
+    # charset:
+    #     console: utf-8
+    # file:
+    #     path: E:\dev\logs
         # org:
         #     springframework:
         #         web:
@@ -8,4 +12,12 @@ logging:
         #                 CommonsRequestLoggingFilter: debug
     # file:
     #     name: C:/dev/logs/was-log.log
-                        
+# spring:
+#   profiles:
+#     include:
+#         - file-logging     
+                
+# spring:
+#     profiles:
+#         include:
+#             - file-logging

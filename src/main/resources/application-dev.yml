@@ -1,13 +1,14 @@
 logging:
     level:
-        root: info
+        root: debug
+    charset:
+        console: utf-8    
         # org:
         #     springframework:
         #         web:
         #             filter:
         #                 CommonsRequestLoggingFilter: debug
     file:
-        name: /project/logs/nuguProxyServer/was-log.log
-        max-history: 30
-    charset:
-        console: utf-8
+        path: E:/dev/logs
+    # charset:
+    #     console: utf-8
