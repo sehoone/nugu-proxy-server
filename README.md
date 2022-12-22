@@ -29,11 +29,11 @@
 ## Install(for linux)
 - Get the project code
 ```sh
-git clone ssh://git@git.openobject.net:8824/samsung/nft-exhibit-server.git
+git clone https://github.com/sehoone/nugu-proxy-server.git
 ```
 - Installation dependencies
 ```sh
-cd nft-exhibit-server
+cd nugu-proxy-server
 ./gradlew bootjar
 ```
 - run boot jar
