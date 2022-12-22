@@ -1,10 +1,11 @@
 logging:
     level:
-        root: info
+        root: debug
         # org:
         #     springframework:
         #         web:
         #             filter:
         #                 CommonsRequestLoggingFilter: debug
-
+    # file:
+    #     name: C:/dev/logs/was-log.log
                         
