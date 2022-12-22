@@ -63,7 +63,7 @@ public class ActionController {
     }
 
     /**
-     * {@code POST /action_name/answer.department.member-name} : NUGU BODY 확인용 API
+     * {@code POST /action-name/answer.music} : NUGU BODY 확인용 API
      *
      * @param
      * @return
