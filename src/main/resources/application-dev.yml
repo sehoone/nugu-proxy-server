@@ -9,6 +9,6 @@ logging:
         #             filter:
         #                 CommonsRequestLoggingFilter: debug
     file:
-        path: E:/dev/logs
+        path: /project/logs/nuguProxyServer
     # charset:
     #     console: utf-8
