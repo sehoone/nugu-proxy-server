@@ -20,7 +20,7 @@ import net.openobject.nuguproxyserver.module.action.controller.res.NuguDepMemRes
  */
 @Slf4j
 @RestController
-@RequestMapping("/action_name")
+@RequestMapping("/action-name")
 public class ActionController {
 
     /**
