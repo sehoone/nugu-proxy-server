@@ -1,21 +1,13 @@
 package net.openobject.nuguproxyserver.config;
 
 import org.springframework.context.annotation.Configuration;
-import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
-
-import net.openobject.nuguproxyserver.common.interceptor.CommonLogInterceptor;
 
 /**
  * web 설정
  */
 @Configuration
-public class WebConfig implements WebMvcConfigurer{
+public class WebConfig {
 	
-    @Override
-    public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(new CommonLogInterceptor());
-    }
 	/**
 	 * logging filter. 
 	 * 로그에 노출할 정보를 설정한다

@@ -46,7 +46,6 @@ public class LoggingAspect {
     public void applicationPackagePointcut() {
         // Method is empty as this is just a Pointcut, the implementations are in the
         // advices.
-        System.out.println("sss");
     }
 
     /**
