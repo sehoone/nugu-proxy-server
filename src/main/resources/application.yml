@@ -6,9 +6,15 @@ logging:
         #         web:
         #             filter:
         #                 CommonsRequestLoggingFilter: debug
-# management:
-#   endpoints:
-#     web:
-#       base-path: /action_name
-#       exposure:
-#         include: health
+
+management:
+  endpoints:
+    web:
+      base-path: /action_name
+      exposure:
+        include: health
+spring:
+  jackson:
+    serialization:
+      fail-on-empty-beans: false
+
