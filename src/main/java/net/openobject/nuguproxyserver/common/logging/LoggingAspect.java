@@ -42,7 +42,8 @@ public class LoggingAspect {
     /**
      * Pointcut that matches all Spring beans in the application's main packages.
      */
-    @Pointcut("within(net.openobject.nuguproxyserver.module..*)")
+    @Pointcut("within(net.openobject.nuguproxyserver.module.*.service..*)" + 
+    " || within(net.openobject.nuguproxyserver.module.*.repository..*)")
     public void applicationPackagePointcut() {
         // Method is empty as this is just a Pointcut, the implementations are in the
         // advices.
