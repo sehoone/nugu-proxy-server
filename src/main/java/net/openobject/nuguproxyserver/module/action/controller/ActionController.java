@@ -3,19 +3,12 @@ package net.openobject.nuguproxyserver.module.action.controller;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import lombok.extern.slf4j.Slf4j;
-import net.openobject.nuguproxyserver.module.action.controller.req.NuguCmnReq;
-import net.openobject.nuguproxyserver.module.action.controller.req.NuguDepMemReq;
 import net.openobject.nuguproxyserver.module.action.controller.res.NuguCmnAudioItemRes;
 import net.openobject.nuguproxyserver.module.action.controller.res.NuguCmnDirectiveRes;
 import net.openobject.nuguproxyserver.module.action.controller.res.NuguCmnProgressReportRes;
@@ -26,7 +19,7 @@ import net.openobject.nuguproxyserver.module.action.controller.res.NuguDepMemRes
 /**
  * action_name 컨트롤러
  */
-@Slf4j
+// @Slf4j
 @RestController
 @RequestMapping("/action-name")
 public class ActionController {
