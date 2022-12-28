@@ -11,8 +11,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import lombok.RequiredArgsConstructor;
-import net.openobject.nuguproxyserver.common.enums.NuguExceptionEnum;
-import net.openobject.nuguproxyserver.common.exception.NuguException;
 import net.openobject.nuguproxyserver.module.action.controller.res.NuguDepMemRes;
 import net.openobject.nuguproxyserver.module.nugu.controller.req.NuguCmnReq;
 import net.openobject.nuguproxyserver.module.nugu.controller.req.NuguFashionReq;
@@ -46,10 +44,10 @@ public class NuguController {
             @RequestBody NuguCmnReq<NuguFashionReq> nuguFashionReq) {
         String name = nuguFashionReq.getAction().getParameters().getName().getValue();
 
-        // exction test
-        if(name.equals("세훈")){
-                throw new NuguException(NuguExceptionEnum.BAD_REQUEST_EXCEPTION);
-        }
+        // // exception sample
+        // if(name.equals("")){
+        //      throw new NuguException(NuguExceptionEnum.BAD_REQUEST_EXCEPTION);
+        // }
 
         NuguFashionRes nuguFashionRes = NuguFashionRes.builder()
                 .fashionStatus(nuguService.getFashionStatus(name)).build();
@@ -75,7 +73,6 @@ public class NuguController {
      */
     @PostMapping("/{action-path}")
     public ResponseEntity<NuguCmnRes<NuguDepMemRes>> actionPath(@PathVariable("action-path") String actionPath) {
-        // log.debug("music start " + nuguDepMemReq.toString());
 
         NuguDepMemRes nuguDepMemRes = NuguDepMemRes.builder().resultCode(0).memberNames("홍길동 최세훈 조성재").build();
 
