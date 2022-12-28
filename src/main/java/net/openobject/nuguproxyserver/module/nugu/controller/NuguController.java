@@ -11,7 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
+import net.openobject.nuguproxyserver.common.enums.NuguExceptionEnum;
+import net.openobject.nuguproxyserver.common.exception.NuguException;
 import net.openobject.nuguproxyserver.module.action.controller.res.NuguDepMemRes;
 import net.openobject.nuguproxyserver.module.nugu.controller.req.NuguCmnReq;
 import net.openobject.nuguproxyserver.module.nugu.controller.req.NuguFashionReq;
@@ -26,7 +27,7 @@ import net.openobject.nuguproxyserver.module.nugu.service.NuguService;
 /**
  * nugu 컨트롤러
  */
-@Slf4j
+// @Slf4j
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/nugu")
@@ -43,9 +44,12 @@ public class NuguController {
     @PostMapping("/answer.fashion")
     public ResponseEntity<NuguCmnRes<NuguFashionRes>> fashion(
             @RequestBody NuguCmnReq<NuguFashionReq> nuguFashionReq) {
-        log.debug("fashion start " + nuguFashionReq.toString());
         String name = nuguFashionReq.getAction().getParameters().getName().getValue();
-        log.debug("fashion name " + name);
+
+        // exction test
+        if(name.equals("세훈")){
+                throw new NuguException(NuguExceptionEnum.BAD_REQUEST_EXCEPTION);
+        }
 
         NuguFashionRes nuguFashionRes = NuguFashionRes.builder()
                 .fashionStatus(nuguService.getFashionStatus(name)).build();
