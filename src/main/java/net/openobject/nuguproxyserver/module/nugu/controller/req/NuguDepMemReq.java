@@ -3,9 +3,8 @@ package net.openobject.nuguproxyserver.module.nugu.controller.req;
 import lombok.Data;
 
 @Data
-public class NuguCmnReq<T> {
+public class NuguDepMemReq {
     
-	private String version;
-	private NuguCmnActionReq<T> action;
-
+	private Object departmentName;
+	
 }

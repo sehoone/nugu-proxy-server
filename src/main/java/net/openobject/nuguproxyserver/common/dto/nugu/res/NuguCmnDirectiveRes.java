@@ -1,4 +1,4 @@
-package net.openobject.nuguproxyserver.module.action.controller.res;
+package net.openobject.nuguproxyserver.common.dto.nugu.res;
 
 import lombok.Builder;
 import lombok.Data;

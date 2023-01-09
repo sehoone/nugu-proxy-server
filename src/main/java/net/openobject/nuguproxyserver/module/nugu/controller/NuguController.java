@@ -11,14 +11,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import lombok.RequiredArgsConstructor;
-import net.openobject.nuguproxyserver.module.action.controller.res.NuguDepMemRes;
-import net.openobject.nuguproxyserver.module.nugu.controller.req.NuguCmnReq;
+import net.openobject.nuguproxyserver.common.dto.nugu.req.NuguCmnReq;
+import net.openobject.nuguproxyserver.common.dto.nugu.res.NuguCmnAudioItemRes;
+import net.openobject.nuguproxyserver.common.dto.nugu.res.NuguCmnDirectiveRes;
+import net.openobject.nuguproxyserver.common.dto.nugu.res.NuguCmnProgressReportRes;
+import net.openobject.nuguproxyserver.common.dto.nugu.res.NuguCmnRes;
+import net.openobject.nuguproxyserver.common.dto.nugu.res.NuguCmnStreamRes;
 import net.openobject.nuguproxyserver.module.nugu.controller.req.NuguFashionReq;
-import net.openobject.nuguproxyserver.module.nugu.controller.res.NuguCmnAudioItemRes;
-import net.openobject.nuguproxyserver.module.nugu.controller.res.NuguCmnDirectiveRes;
-import net.openobject.nuguproxyserver.module.nugu.controller.res.NuguCmnProgressReportRes;
-import net.openobject.nuguproxyserver.module.nugu.controller.res.NuguCmnRes;
-import net.openobject.nuguproxyserver.module.nugu.controller.res.NuguCmnStreamRes;
+import net.openobject.nuguproxyserver.module.nugu.controller.res.NuguDepMemRes;
 import net.openobject.nuguproxyserver.module.nugu.controller.res.NuguFashionRes;
 import net.openobject.nuguproxyserver.module.nugu.service.NuguService;
 
@@ -44,7 +44,7 @@ public class NuguController {
             @RequestBody NuguCmnReq<NuguFashionReq> nuguFashionReq) {
         String name = nuguFashionReq.getAction().getParameters().getName().getValue();
 
-        // // exception sample
+        // exception 처리 sample
         // if(name.equals("")){
         //      throw new NuguException(NuguExceptionEnum.BAD_REQUEST_EXCEPTION);
         // }

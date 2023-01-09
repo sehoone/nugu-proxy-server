@@ -5,9 +5,9 @@ import lombok.Data;
 
 @Data
 @Builder
-public class NuguCmnDirectiveRes {
+public class NuguDepMemRes {
     
-	private String type;
-	private NuguCmnAudioItemRes audioItem;
-
+	private int resultCode;
+	private String memberNames;
+	
 }
