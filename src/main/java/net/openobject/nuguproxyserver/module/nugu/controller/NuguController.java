@@ -111,7 +111,7 @@ public class NuguController {
     @PostMapping("/answer.member-team")
     public ResponseEntity<NuguCmnRes<NuguMemberTeamRes>> memberTeam(
             @RequestBody NuguCmnReq<NuguMemberTeamReq> nuguMemberTeamReq) {
-        String memberName = nuguMemberTeamReq.getAction().getParameters().getMemberName().getValue();
+        String memberName = nuguMemberTeamReq.getAction().getParameters().getMemberName().getValue().trim();
         // String memberRank = nuguMemberTeamReq.getAction().getParameters().getMemberRank().getValue();
 
         // exception 처리 sample
