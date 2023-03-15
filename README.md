@@ -5,6 +5,7 @@
 - SKT NUGU 플랫폼 적용을 위한 Backend Proxy Server
 - NUGU Developer Document: https://developers.nugu.co.kr
 - NUGU Developer Backend Proxy Server Document: https://developers-doc.nugu.co.kr/nugu-play/create-plays-with-play-builder/use-backend-proxy
+- NUGU Developer Backend Proxy Server API Reference: https://developers-doc.nugu.co.kr/nugu-play/create-plays-with-play-builder/use-backend-proxy/backend-proxy-api-reference
 
 ## Access information
 - http://domain:8443

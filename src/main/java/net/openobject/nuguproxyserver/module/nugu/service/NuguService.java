@@ -30,4 +30,21 @@ public class NuguService {
         return fashionStatus;
     }
 
+    public String getMemberTeam(String memberName) {
+        log.debug("Request to get getMemberTeam");
+        String memberTeam = "잘모르겠어요";
+
+        if(memberName.equals("문광식") | memberName.equals("조성재") | memberName.equals("이택성") | memberName.equals("김동현") ){
+            memberTeam = "프론트개발2팀";
+        } else if (memberName.equals("임영진") | memberName.equals("이정현") | memberName.equals("전승필") | memberName.equals("손호준") | memberName.equals("최윤찬")){
+            memberTeam = "프론트개발4팀";
+        } else if (memberName.equals("최세훈")){
+            memberTeam = "웹서버개발3팀";
+        } else if (memberName.equals("한수웅")){
+            memberTeam = "DT그룹";
+        }
+        
+        return memberTeam;
+    }
+
 }

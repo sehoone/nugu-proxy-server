@@ -18,8 +18,10 @@ import net.openobject.nuguproxyserver.common.dto.nugu.res.NuguCmnProgressReportR
 import net.openobject.nuguproxyserver.common.dto.nugu.res.NuguCmnRes;
 import net.openobject.nuguproxyserver.common.dto.nugu.res.NuguCmnStreamRes;
 import net.openobject.nuguproxyserver.module.nugu.controller.req.NuguFashionReq;
+import net.openobject.nuguproxyserver.module.nugu.controller.req.NuguMemberTeamReq;
 import net.openobject.nuguproxyserver.module.nugu.controller.res.NuguDepMemRes;
 import net.openobject.nuguproxyserver.module.nugu.controller.res.NuguFashionRes;
+import net.openobject.nuguproxyserver.module.nugu.controller.res.NuguMemberTeamRes;
 import net.openobject.nuguproxyserver.module.nugu.service.NuguService;
 
 /**
@@ -98,6 +100,39 @@ public class NuguController {
         NuguCmnRes<NuguDepMemRes> wapperNuguDepMemRes = NuguCmnRes.<NuguDepMemRes>builder().version("2.0")
                 .resultCode("OK").output(nuguDepMemRes).directives(NuguCmnDirectives).build();
         return ResponseEntity.ok().body(wapperNuguDepMemRes);
+    }
+
+    /**
+     * {@code POST /nugu/answer.member-team} : NUGU 직원 팀정보 API
+     *
+     * @param
+     * @return
+     */
+    @PostMapping("/answer.member-team")
+    public ResponseEntity<NuguCmnRes<NuguMemberTeamRes>> memberTeam(
+            @RequestBody NuguCmnReq<NuguMemberTeamReq> nuguMemberTeamReq) {
+        String memberName = nuguMemberTeamReq.getAction().getParameters().getMemberName().getValue();
+        // String memberRank = nuguMemberTeamReq.getAction().getParameters().getMemberRank().getValue();
+
+        // exception 처리 sample
+        // if(name.equals("")){
+        //      throw new NuguException(NuguExceptionEnum.BAD_REQUEST_EXCEPTION);
+        // }
+
+        NuguMemberTeamRes nuguMemberTeamRes = NuguMemberTeamRes.builder()
+                .memberTeam(nuguService.getMemberTeam(memberName)).build();
+
+        NuguCmnAudioItemRes nuguCmnAudioItemRes = NuguCmnAudioItemRes.builder().metadata(new Object()).build();
+
+        NuguCmnDirectiveRes nuguCmnDirectiveRes = NuguCmnDirectiveRes.builder().type("AudioPlayer.Play")
+                .audioItem(nuguCmnAudioItemRes).build();
+
+        List<NuguCmnDirectiveRes> NuguCmnDirectives = new ArrayList<NuguCmnDirectiveRes>();
+        NuguCmnDirectives.add(nuguCmnDirectiveRes);
+
+        NuguCmnRes<NuguMemberTeamRes> wapperNuguMemberTeamRes = NuguCmnRes.<NuguMemberTeamRes>builder().version("2.0")
+                .resultCode("OK").output(nuguMemberTeamRes).directives(NuguCmnDirectives).build();
+        return ResponseEntity.ok().body(wapperNuguMemberTeamRes);
     }
 
 }
