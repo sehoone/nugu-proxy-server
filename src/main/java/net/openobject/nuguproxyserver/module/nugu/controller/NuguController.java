@@ -135,4 +135,36 @@ public class NuguController {
         return ResponseEntity.ok().body(wapperNuguMemberTeamRes);
     }
 
+    /**
+     * {@code POST /nugu/answer.member-team} : NUGU 오디오 플레이 API
+     *
+     * @param
+     * @return
+     */
+    @PostMapping("/answer.audio-play")
+    public ResponseEntity<NuguCmnRes<NuguDepMemRes>> audioPlayEntity() {
+
+        NuguCmnProgressReportRes nuguCmnProgressReportRes = NuguCmnProgressReportRes.builder()
+                .progressReportDelayInMilliseconds(0L)
+                .progressReportIntervalInMilliseconds(0L).build();
+
+        NuguCmnStreamRes nuguCmnStreamRes = NuguCmnStreamRes.builder()
+                .url("http://mediaserv30.live-streams.nl:8086/live").offsetInMilliseconds(0L)
+                .progressReport(nuguCmnProgressReportRes).token("openobject.music.01")
+                .expectedPreviousToken("")
+                .build();
+
+        NuguCmnAudioItemRes nuguCmnAudioItemRes = NuguCmnAudioItemRes.builder().stream(nuguCmnStreamRes)
+                .metadata(new Object()).build();
+
+        NuguCmnDirectiveRes nuguCmnDirectiveRes = NuguCmnDirectiveRes.builder().type("AudioPlayer.Play")
+                .audioItem(nuguCmnAudioItemRes).build();
+
+        List<NuguCmnDirectiveRes> NuguCmnDirectives = new ArrayList<NuguCmnDirectiveRes>();
+        NuguCmnDirectives.add(nuguCmnDirectiveRes);
+
+        NuguCmnRes<NuguDepMemRes> wapperNuguDepMemRes = NuguCmnRes.<NuguDepMemRes>builder().version("2.0")
+                .resultCode("OK").output(null).directives(NuguCmnDirectives).build();
+        return ResponseEntity.ok().body(wapperNuguDepMemRes);
+    }
 }
